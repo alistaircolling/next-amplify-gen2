@@ -1,7 +1,7 @@
 // components/TodoList.tsx
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import { generateClient } from 'aws-amplify/data'
 import type { Schema } from '@/amplify/data/resource'
 
@@ -19,6 +19,13 @@ export default function TodoList() {
 
   useEffect(() => {
     listTodos()
+  }, [])
+
+  useEffect(() => {
+    const sub = client.models.Todo.observeQuery().subscribe(({ items }) => {
+      setTodos([...items])
+    })
+    return () => sub.unsubscribe()
   }, [])
 
   return (
