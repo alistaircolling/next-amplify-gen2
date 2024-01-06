@@ -46,11 +46,11 @@ export default function TodoList() {
         Create{' '}
       </button>
 
-      <ul>
+      {/* <ul>
         {todos.map((todo) => (
           <li key={todo.id}>{todo.content}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   )
 }
