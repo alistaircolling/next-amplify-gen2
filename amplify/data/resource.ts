@@ -7,6 +7,7 @@ specify that owners, authenticated via your Auth resource can "create",
 "read", "update", and "delete" their own records. Public users,
 authenticated via an API key, can only "read" records.
 =========================================================================*/
+
 const schema = a.schema({
   Todo: a
     .model({
@@ -15,6 +16,18 @@ const schema = a.schema({
       priority: a.enum(['low', 'medium', 'high'])
     })
     .authorization([a.allow.owner()]),
+  // Define the Booking model with a.date()
+  Booking: a
+    .model({
+      start: a.date(),
+      end: a.date(),
+      bookingMade: a.date(),
+      user: a.string(),
+      cost: a.float(),
+      invoiceSent: a.boolean(),
+      invoicePaid: a.boolean()
+    })
+    .authorization([a.allow.owner()]), // Adjust the authorization as needed
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -23,10 +36,7 @@ export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: 'userPool',
-    // API Key is used for a.allow.public() rules
-    // apiKeyAuthorizationMode: {
-    //   expiresInDays: 30,
-    // },
+    // Other configurations...
   },
 });
 
