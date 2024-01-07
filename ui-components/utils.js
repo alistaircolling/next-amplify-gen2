@@ -1,6 +1,13 @@
+/***************************************************************************
+ * The contents of this file were generated with Amplify Studio.           *
+ * Please refrain from making any modifications to this file.              *
+ * Any changes to this file will be overwritten when running amplify pull. *
+ **************************************************************************/
+
 /* eslint-disable */
 import * as React from "react";
-import { signOut } from "aws-amplify/auth";
+import { fetchUserAttributes, signOut } from "aws-amplify/auth";
+import { DataStore } from "aws-amplify/datastore";
 import { Hub } from "aws-amplify/utils";
 export const UI_CHANNEL = "ui";
 export const UI_EVENT_TYPE_ACTIONS = "actions";
@@ -160,7 +167,7 @@ export function getOverridesFromVariants(variants, props) {
   const matchedVariants = variants.filter(({ variantValues }) => {
     return (
       Object.keys(variantValues).length ===
-      Object.keys(variantValuesFromProps).length &&
+        Object.keys(variantValuesFromProps).length &&
       Object.entries(variantValues).every(
         ([key, value]) => variantValuesFromProps[key] === value
       )
@@ -233,8 +240,8 @@ export const useTypeCastFields = ({ fields, modelName, schema }) => {
         case "Int":
           castFields[fieldName] =
             typeof field === "string" ||
-              (typeof field === "object" &&
-                Object.prototype.toString.call(field) === "[object String]")
+            (typeof field === "object" &&
+              Object.prototype.toString.call(field) === "[object String]")
               ? parseInt(field)
               : field;
           break;
@@ -355,39 +362,39 @@ export const useDataStoreUpdateAction = ({
 };
 export const useDataStoreDeleteAction =
   ({ model, id }) =>
-    async () => {
-      try {
-        Hub.dispatch(
-          UI_CHANNEL,
-          {
-            event: ACTION_DATASTORE_DELETE_STARTED,
-            data: { id },
-          },
-          EVENT_ACTION_DATASTORE_DELETE,
-          AMPLIFY_SYMBOL
-        );
-        await DataStore.delete(model, id);
-        Hub.dispatch(
-          UI_CHANNEL,
-          {
-            event: ACTION_DATASTORE_DELETE_FINISHED,
-            data: { id },
-          },
-          EVENT_ACTION_DATASTORE_DELETE,
-          AMPLIFY_SYMBOL
-        );
-      } catch (error) {
-        Hub.dispatch(
-          UI_CHANNEL,
-          {
-            event: ACTION_DATASTORE_DELETE_FINISHED,
-            data: { id, errorMessage: getErrorMessage(error) },
-          },
-          EVENT_ACTION_DATASTORE_DELETE,
-          AMPLIFY_SYMBOL
-        );
-      }
-    };
+  async () => {
+    try {
+      Hub.dispatch(
+        UI_CHANNEL,
+        {
+          event: ACTION_DATASTORE_DELETE_STARTED,
+          data: { id },
+        },
+        EVENT_ACTION_DATASTORE_DELETE,
+        AMPLIFY_SYMBOL
+      );
+      await DataStore.delete(model, id);
+      Hub.dispatch(
+        UI_CHANNEL,
+        {
+          event: ACTION_DATASTORE_DELETE_FINISHED,
+          data: { id },
+        },
+        EVENT_ACTION_DATASTORE_DELETE,
+        AMPLIFY_SYMBOL
+      );
+    } catch (error) {
+      Hub.dispatch(
+        UI_CHANNEL,
+        {
+          event: ACTION_DATASTORE_DELETE_FINISHED,
+          data: { id, errorMessage: getErrorMessage(error) },
+        },
+        EVENT_ACTION_DATASTORE_DELETE,
+        AMPLIFY_SYMBOL
+      );
+    }
+  };
 export const createDataStorePredicate = (predicateObject) => {
   const {
     and: groupAnd,
@@ -495,6 +502,60 @@ export const useAuthSignOutAction = (options) => async () => {
       AMPLIFY_SYMBOL
     );
   }
+};
+export const useAuth = () => {
+  const [result, setResult] = React.useState({
+    error: undefined,
+    isLoading: true,
+    user: undefined,
+  });
+  const fetchCurrentUserAttributes = React.useCallback(async () => {
+    setResult((prevResult) => ({ ...prevResult, isLoading: true }));
+    try {
+      const attributes = await fetchUserAttributes();
+      setResult({ user: { attributes }, isLoading: false });
+    } catch (error) {
+      setResult({ error, isLoading: false });
+    }
+  }, []);
+  const handleAuth = React.useCallback(
+    ({ payload }) => {
+      switch (payload.event) {
+        case "signedIn":
+        case "signUp":
+        case "tokenRefresh":
+        case "autoSignIn": {
+          fetchCurrentUserAttributes();
+          break;
+        }
+        case "signedOut": {
+          setResult({ user: undefined, isLoading: false });
+          break;
+        }
+        case "tokenRefresh_failure":
+        case "signIn_failure": {
+          setResult({ error: payload.data, isLoading: false });
+          break;
+        }
+        case "autoSignIn_failure": {
+          setResult({ error: new Error(payload.message), isLoading: false });
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+    },
+    [fetchCurrentUserAttributes]
+  );
+  React.useEffect(() => {
+    const unsubscribe = Hub.listen("auth", handleAuth, "useAuth");
+    fetchCurrentUserAttributes();
+    return unsubscribe;
+  }, [handleAuth, fetchCurrentUserAttributes]);
+  return {
+    ...result,
+  };
 };
 export const validateField = (value, validations) => {
   for (const validation of validations) {

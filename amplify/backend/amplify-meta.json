@@ -14,29 +14,28 @@
   },
   "api": {
     "nextamplifygen2": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "output": {
         "authConfig": {
+          "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
-            "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 7
-            }
-          },
-          "additionalAuthenticationProviders": []
+            },
+            "authenticationType": "API_KEY"
+          }
         },
         "GraphQLAPIIdOutput": "6omkvujnxrhw5jfo3lxvpru6bu",
         "GraphQLAPIEndpointOutput": "https://4cbz6kdtenasrnyskjjzs4wsjm.appsync-api.eu-west-2.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-yypzfjibnzhldj3znjqie7i7vq"
       },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2024-01-06T02:52:35.659Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-nextamplifygen2-dev-140943-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apinextamplifygen2"
-      },
-      "lastPushTimeStamp": "2024-01-05T14:16:09.221Z",
-      "lastPushDirHash": "+UUxrBpbH2VS+8jzxxYs+KWofVM="
+      }
     }
   }
 }
