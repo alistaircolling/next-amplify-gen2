@@ -1,0 +1,42 @@
+Data Type,Property,Data Type,Client,Engineer,Admin,Billing,Tech,Booker,Read-only
+Booking,dateAndTimeStart,Date,Read,Read,Full,Read,Read,Edit,Read
+Booking,dateAndTimeEnd,Date,Read,Read,Full,Read,Read,Edit,Read
+Booking,dateAndTimeBookingMade,Date,Read,Read,Full,Read,Read,Edit,Read
+Booking,userWhoBooked,User,Read,Read,Full,Read,Read,Edit,Read
+Booking,location,Location,Read,Read,Full,Read,Read,Edit,Read
+Booking,equipmentList,Equipment[],Read,Read,Full,Read,Read,Edit,Read
+Booking,costOfBooking,number,Read,Read,Full,Full,Full,Read,Read
+Booking,invoiceSent,boolean,Read,Read,Full,Full,Full,Read,Read
+Booking,invoicePaid,boolean,Read,Read,Full,Full,Full,Read,Read
+User,forname,string,Read,Read,Full,Read,Read,Full,Read
+User,surname,string,Read,Read,Full,Read,Read,Full,Read
+User,type,UserType,Read,Read,Full,Read,Read,Full,Read
+User,phoneNumber,string,Read,Read,Full,Read,Read,Full,Read
+User,email,string,Read,Read,Full,Read,Read,Full,Read
+User,billingAddress,string,Read,Read,Full,Read,Read,Full,Read
+User,bookingList,Booking[],Read,Read,Full,Read,Read,Full,Read
+User,invoiceList,Invoice[],Read,Read,Full,Read,Read,Full,Read
+UserType,'Client' | 'Engineer' | 'Admin' | 'Billing' | 'Tech' | 'Booker' | 'Read-only',string,Read,Read,Full,Read,Read,Full,Read
+UserPermission,'None' | 'Read' | 'Edit' | 'Full',string,Read,Read,Full,Read,Read,Full,Read
+Invoice,booking,Booking,Read,Read,Full,Full,Full,Read,Read
+Invoice,user,User,Read,Read,Full,Full,Full,Read,Read
+Invoice,status,InvoiceStatus,Read,Read,Full,Full,Full,Read,Read
+InvoiceStatus,'Draft' | 'Sent' | 'Paid',string,Read,Read,Full,Read,Read,Full,Read
+Location,name,string,Read,Read,Full,Read,Read,Full,Read
+Location,costPerHour,number,Read,Read,Full,Read,Read,Full,Read
+Location,costPerDay,number,Read,Read,Full,Read,Read,Full,Read
+Location,bookingList,Booking[],Read,Read,Full,Read,Read,Full,Read
+Equipment,brand,string,Read,Read,Full,Read,Read,Full,Read
+Equipment,model,string,Read,Read,Full,Read,Read,Full,Read
+Equipment,year,number,Read,Read,Full,Read,Read,Full,Read
+Equipment,status,FaultStatus,Read,Read,Full,Read,Read,Full,Read
+Equipment,bookingList,Booking[],Read,Read,Full,Read,Read,Full,Read
+Equipment,faultList,Fault[],Read,Read,Full,Read,Read,Full,Read
+Equipment,componentList,Component[],Read,Read,Full,Read,Read,Full,Read
+Component,brand,string,Read,Read,Full,Read,Read,Full,Read
+Component,model,string,Read,Read,Full,Read,Read,Full,Read
+Component,year,number,Read,Read,Full,Read,Read,Full,Read
+Component,availability,number,Read,Read,Full,Read,Read,Full,Read
+Component,equipmentList,Equipment[],Read,Read,Full,Read,Read,Full,Read
+FaultStatus,'Working' | 'Faulty' | 'In repair' | 'Repair booked',string,Read,Read,Full,Read,Read,Full,Read
+Fault,equipment,Equipment,Read

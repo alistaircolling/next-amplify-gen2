@@ -2,6 +2,7 @@
     "AppSyncApiName": "nextamplifygen2",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": "authnextamplifygen213b862b5",
     "S3DeploymentBucket": "amplify-nextamplifygen2-dev-140943-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/00267f70c5b8f66e4ca2ce380e5486d16623c5c0"
+    "S3DeploymentRootKey": "amplify-appsync-files/e3b29fa668f962fe96ebb6072e1f010a26246d08"
 }

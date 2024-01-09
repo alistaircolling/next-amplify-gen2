@@ -17,7 +17,14 @@
       "dependsOn": [],
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [],
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authnextamplifygen213b862b5"
+              }
+            }
+          ],
           "defaultAuthentication": {
             "apiKeyConfig": {
               "apiKeyExpirationDays": 7
@@ -31,12 +38,55 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync",
-      "lastPushTimeStamp": "2024-01-07T13:44:54.023Z",
+      "lastPushTimeStamp": "2024-01-08T16:13:45.918Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-nextamplifygen2-dev-140943-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apinextamplifygen2"
       },
-      "lastPushDirHash": "+UUxrBpbH2VS+8jzxxYs+KWofVM="
+      "lastPushDirHash": "dbeW2pIkudglnuTvs39A9CVi+CY="
+    }
+  },
+  "auth": {
+    "nextamplifygen213b862b5": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-nextamplifygen2-dev-140943-deployment/amplify-cfn-templates/auth/nextamplifygen213b862b5-cloudformation-template.json",
+        "logicalId": "authnextamplifygen213b862b5"
+      },
+      "lastPushTimeStamp": "2024-01-08T16:13:45.921Z",
+      "output": {
+        "UserPoolId": "eu-west-2_ses9PUIJr",
+        "AppClientIDWeb": "1rd5cqqidqq0ddijgsrji9u3ad",
+        "AppClientID": "4dgtgmlfmhjb6pajiubiggg2bi",
+        "IdentityPoolId": "eu-west-2:81b4754e-0098-4d5d-958b-e3b3b8eb7ddc",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-west-2:164802108726:userpool/eu-west-2_ses9PUIJr",
+        "IdentityPoolName": "nextamplifygen213b862b5_identitypool_13b862b5__dev",
+        "UserPoolName": "nextamplifygen213b862b5_userpool_13b862b5"
+      },
+      "lastPushDirHash": "oh4C9EstnJkik6PxJQNRfK7te1A="
     }
   }
 }

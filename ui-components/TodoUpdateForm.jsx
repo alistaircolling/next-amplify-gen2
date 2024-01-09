@@ -1,18 +1,16 @@
+/***************************************************************************
+ * The contents of this file were generated with Amplify Studio.           *
+ * Please refrain from making any modifications to this file.              *
+ * Any changes to this file will be overwritten when running amplify pull. *
+ **************************************************************************/
+
 /* eslint-disable */
-"use client";
 import * as React from "react";
-import {
-  Button,
-  Flex,
-  Grid,
-  SelectField,
-  SwitchField,
-  TextField,
-} from "@aws-amplify/ui-react";
+import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { generateClient } from "aws-amplify/api";
-import { getTodo } from "./graphql/queries";
-import { updateTodo } from "./graphql/mutations";
+import { getTodo } from "../queries";
+import { updateTodo } from "../mutations";
 const client = generateClient();
 export default function TodoUpdateForm(props) {
   const {
@@ -27,24 +25,20 @@ export default function TodoUpdateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    content: "",
-    done: false,
-    priority: "",
-    owner: "",
+    name: "",
+    description: "",
   };
-  const [content, setContent] = React.useState(initialValues.content);
-  const [done, setDone] = React.useState(initialValues.done);
-  const [priority, setPriority] = React.useState(initialValues.priority);
-  const [owner, setOwner] = React.useState(initialValues.owner);
+  const [name, setName] = React.useState(initialValues.name);
+  const [description, setDescription] = React.useState(
+    initialValues.description
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = todoRecord
       ? { ...initialValues, ...todoRecord }
       : initialValues;
-    setContent(cleanValues.content);
-    setDone(cleanValues.done);
-    setPriority(cleanValues.priority);
-    setOwner(cleanValues.owner);
+    setName(cleanValues.name);
+    setDescription(cleanValues.description);
     setErrors({});
   };
   const [todoRecord, setTodoRecord] = React.useState(todoModelProp);
@@ -64,10 +58,8 @@ export default function TodoUpdateForm(props) {
   }, [idProp, todoModelProp]);
   React.useEffect(resetStateValues, [todoRecord]);
   const validations = {
-    content: [],
-    done: [],
-    priority: [],
-    owner: [],
+    name: [{ type: "Required" }],
+    description: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -95,10 +87,8 @@ export default function TodoUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          content: content ?? null,
-          done: done ?? null,
-          priority: priority ?? null,
-          owner: owner ?? null,
+          name,
+          description: description ?? null,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -151,128 +141,54 @@ export default function TodoUpdateForm(props) {
       {...rest}
     >
       <TextField
-        label="Content"
-        isRequired={false}
+        label="Name"
+        isRequired={true}
         isReadOnly={false}
-        value={content}
+        value={name}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              content: value,
-              done,
-              priority,
-              owner,
+              name: value,
+              description,
             };
             const result = onChange(modelFields);
-            value = result?.content ?? value;
+            value = result?.name ?? value;
           }
-          if (errors.content?.hasError) {
-            runValidationTasks("content", value);
+          if (errors.name?.hasError) {
+            runValidationTasks("name", value);
           }
-          setContent(value);
+          setName(value);
         }}
-        onBlur={() => runValidationTasks("content", content)}
-        errorMessage={errors.content?.errorMessage}
-        hasError={errors.content?.hasError}
-        {...getOverrideProps(overrides, "content")}
+        onBlur={() => runValidationTasks("name", name)}
+        errorMessage={errors.name?.errorMessage}
+        hasError={errors.name?.hasError}
+        {...getOverrideProps(overrides, "name")}
       ></TextField>
-      <SwitchField
-        label="Done"
-        defaultChecked={false}
-        isDisabled={false}
-        isChecked={done}
-        onChange={(e) => {
-          let value = e.target.checked;
-          if (onChange) {
-            const modelFields = {
-              content,
-              done: value,
-              priority,
-              owner,
-            };
-            const result = onChange(modelFields);
-            value = result?.done ?? value;
-          }
-          if (errors.done?.hasError) {
-            runValidationTasks("done", value);
-          }
-          setDone(value);
-        }}
-        onBlur={() => runValidationTasks("done", done)}
-        errorMessage={errors.done?.errorMessage}
-        hasError={errors.done?.hasError}
-        {...getOverrideProps(overrides, "done")}
-      ></SwitchField>
-      <SelectField
-        label="Priority"
-        placeholder="Please select an option"
-        isDisabled={false}
-        value={priority}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              content,
-              done,
-              priority: value,
-              owner,
-            };
-            const result = onChange(modelFields);
-            value = result?.priority ?? value;
-          }
-          if (errors.priority?.hasError) {
-            runValidationTasks("priority", value);
-          }
-          setPriority(value);
-        }}
-        onBlur={() => runValidationTasks("priority", priority)}
-        errorMessage={errors.priority?.errorMessage}
-        hasError={errors.priority?.hasError}
-        {...getOverrideProps(overrides, "priority")}
-      >
-        <option
-          children="Low"
-          value="low"
-          {...getOverrideProps(overrides, "priorityoption0")}
-        ></option>
-        <option
-          children="Medium"
-          value="medium"
-          {...getOverrideProps(overrides, "priorityoption1")}
-        ></option>
-        <option
-          children="High"
-          value="high"
-          {...getOverrideProps(overrides, "priorityoption2")}
-        ></option>
-      </SelectField>
       <TextField
-        label="Owner"
+        label="Description"
         isRequired={false}
         isReadOnly={false}
-        value={owner}
+        value={description}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              content,
-              done,
-              priority,
-              owner: value,
+              name,
+              description: value,
             };
             const result = onChange(modelFields);
-            value = result?.owner ?? value;
+            value = result?.description ?? value;
           }
-          if (errors.owner?.hasError) {
-            runValidationTasks("owner", value);
+          if (errors.description?.hasError) {
+            runValidationTasks("description", value);
           }
-          setOwner(value);
+          setDescription(value);
         }}
-        onBlur={() => runValidationTasks("owner", owner)}
-        errorMessage={errors.owner?.errorMessage}
-        hasError={errors.owner?.hasError}
-        {...getOverrideProps(overrides, "owner")}
+        onBlur={() => runValidationTasks("description", description)}
+        errorMessage={errors.description?.errorMessage}
+        hasError={errors.description?.hasError}
+        {...getOverrideProps(overrides, "description")}
       ></TextField>
       <Flex
         justifyContent="space-between"

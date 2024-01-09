@@ -2,29 +2,33 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getTodo = /* GraphQL */ `
-  query GetTodo($id: ID!) {
-    getTodo(id: $id) {
-      content
+export const getBooking = /* GraphQL */ `
+  query GetBooking($id: ID!) {
+    getBooking(id: $id) {
+      bookingMade
+      cost
       createdAt
-      done
+      end
       id
+      invoicePaid
+      invoiceSent
       owner
-      priority
+      start
       updatedAt
+      user
       __typename
     }
   }
 `;
-export const listTodos = /* GraphQL */ `
-  query ListTodos(
-    $filter: ModelTodoFilterInput
+export const listBookings = /* GraphQL */ `
+  query ListBookings(
+    $filter: ModelBookingFilterInput
     $id: ID
     $limit: Int
     $nextToken: String
     $sortDirection: ModelSortDirection
   ) {
-    listTodos(
+    listBookings(
       filter: $filter
       id: $id
       limit: $limit
@@ -32,13 +36,17 @@ export const listTodos = /* GraphQL */ `
       sortDirection: $sortDirection
     ) {
       items {
-        content
+        bookingMade
+        cost
         createdAt
-        done
+        end
         id
+        invoicePaid
+        invoiceSent
         owner
-        priority
+        start
         updatedAt
+        user
         __typename
       }
       nextToken

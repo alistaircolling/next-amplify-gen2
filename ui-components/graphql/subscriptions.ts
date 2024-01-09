@@ -2,53 +2,65 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTodo = /* GraphQL */ `
-  subscription OnCreateTodo(
-    $filter: ModelSubscriptionTodoFilterInput
+export const onCreateBooking = /* GraphQL */ `
+  subscription OnCreateBooking(
+    $filter: ModelSubscriptionBookingFilterInput
     $owner: String
   ) {
-    onCreateTodo(filter: $filter, owner: $owner) {
-      content
+    onCreateBooking(filter: $filter, owner: $owner) {
+      bookingMade
+      cost
       createdAt
-      done
+      end
       id
+      invoicePaid
+      invoiceSent
       owner
-      priority
+      start
       updatedAt
+      user
       __typename
     }
   }
 `;
-export const onDeleteTodo = /* GraphQL */ `
-  subscription OnDeleteTodo(
-    $filter: ModelSubscriptionTodoFilterInput
+export const onDeleteBooking = /* GraphQL */ `
+  subscription OnDeleteBooking(
+    $filter: ModelSubscriptionBookingFilterInput
     $owner: String
   ) {
-    onDeleteTodo(filter: $filter, owner: $owner) {
-      content
+    onDeleteBooking(filter: $filter, owner: $owner) {
+      bookingMade
+      cost
       createdAt
-      done
+      end
       id
+      invoicePaid
+      invoiceSent
       owner
-      priority
+      start
       updatedAt
+      user
       __typename
     }
   }
 `;
-export const onUpdateTodo = /* GraphQL */ `
-  subscription OnUpdateTodo(
-    $filter: ModelSubscriptionTodoFilterInput
+export const onUpdateBooking = /* GraphQL */ `
+  subscription OnUpdateBooking(
+    $filter: ModelSubscriptionBookingFilterInput
     $owner: String
   ) {
-    onUpdateTodo(filter: $filter, owner: $owner) {
-      content
+    onUpdateBooking(filter: $filter, owner: $owner) {
+      bookingMade
+      cost
       createdAt
-      done
+      end
       id
+      invoicePaid
+      invoiceSent
       owner
-      priority
+      start
       updatedAt
+      user
       __typename
     }
   }

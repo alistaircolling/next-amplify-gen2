@@ -7,3 +7,14 @@ type Todo @model {
   name: String!
   description: String
 }
+
+type Booking @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  start: AWSDate!
+  end: AWSDate!
+  bookingMade: AWSDate!
+  user: String!
+  cost: Float!
+  invoiceSent: Boolean!
+  invoicePaid: Boolean!
+}

@@ -1,0 +1,19 @@
+projects:
+  nextamplifygen2:
+    schemaPath: amplify/backend/api/nextamplifygen2/build/schema.graphql
+    includes:
+      - '*.ts'
+    excludes:
+      - ./amplify/**
+      - src/API.ts
+    extensions:
+      amplify:
+        codeGenTarget: typescript
+        generatedFileName: src/API.ts
+        docsFilePath: .
+        region: eu-west-2
+        apiId: null
+        maxDepth: 4
+extensions:
+  amplify:
+    version: 3
