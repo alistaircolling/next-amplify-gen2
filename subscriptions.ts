@@ -53,11 +53,9 @@ export const onDeleteTodo =
     APITypes.OnDeleteTodoSubscriptionVariables,
     APITypes.OnDeleteTodoSubscription
   >;
-export const onCreateBooking = /* GraphQL */ `subscription OnCreateBooking(
-  $filter: ModelSubscriptionBookingFilterInput
-  $owner: String
-) {
-  onCreateBooking(filter: $filter, owner: $owner) {
+export const onCreateBooking =
+  /* GraphQL */ `subscription OnCreateBooking($filter: ModelSubscriptionBookingFilterInput) {
+  onCreateBooking(filter: $filter) {
     id
     start
     end
@@ -68,19 +66,16 @@ export const onCreateBooking = /* GraphQL */ `subscription OnCreateBooking(
     invoicePaid
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateBookingSubscriptionVariables,
-  APITypes.OnCreateBookingSubscription
->;
-export const onUpdateBooking = /* GraphQL */ `subscription OnUpdateBooking(
-  $filter: ModelSubscriptionBookingFilterInput
-  $owner: String
-) {
-  onUpdateBooking(filter: $filter, owner: $owner) {
+    APITypes.OnCreateBookingSubscriptionVariables,
+    APITypes.OnCreateBookingSubscription
+  >;
+export const onUpdateBooking =
+  /* GraphQL */ `subscription OnUpdateBooking($filter: ModelSubscriptionBookingFilterInput) {
+  onUpdateBooking(filter: $filter) {
     id
     start
     end
@@ -91,19 +86,16 @@ export const onUpdateBooking = /* GraphQL */ `subscription OnUpdateBooking(
     invoicePaid
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateBookingSubscriptionVariables,
-  APITypes.OnUpdateBookingSubscription
->;
-export const onDeleteBooking = /* GraphQL */ `subscription OnDeleteBooking(
-  $filter: ModelSubscriptionBookingFilterInput
-  $owner: String
-) {
-  onDeleteBooking(filter: $filter, owner: $owner) {
+    APITypes.OnUpdateBookingSubscriptionVariables,
+    APITypes.OnUpdateBookingSubscription
+  >;
+export const onDeleteBooking =
+  /* GraphQL */ `subscription OnDeleteBooking($filter: ModelSubscriptionBookingFilterInput) {
+  onDeleteBooking(filter: $filter) {
     id
     start
     end
@@ -114,11 +106,10 @@ export const onDeleteBooking = /* GraphQL */ `subscription OnDeleteBooking(
     invoicePaid
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteBookingSubscriptionVariables,
-  APITypes.OnDeleteBookingSubscription
->;
+    APITypes.OnDeleteBookingSubscriptionVariables,
+    APITypes.OnDeleteBookingSubscription
+  >;

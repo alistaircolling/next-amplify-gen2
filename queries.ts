@@ -50,7 +50,6 @@ export const getBooking = /* GraphQL */ `query GetBooking($id: ID!) {
     invoicePaid
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
@@ -75,7 +74,6 @@ export const listBookings = /* GraphQL */ `query ListBookings(
       invoicePaid
       createdAt
       updatedAt
-      owner
       __typename
     }
     nextToken

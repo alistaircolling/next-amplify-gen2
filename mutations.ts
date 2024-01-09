@@ -74,7 +74,6 @@ export const createBooking = /* GraphQL */ `mutation CreateBooking(
     invoicePaid
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
@@ -97,7 +96,6 @@ export const updateBooking = /* GraphQL */ `mutation UpdateBooking(
     invoicePaid
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
@@ -120,7 +118,6 @@ export const deleteBooking = /* GraphQL */ `mutation DeleteBooking(
     invoicePaid
     createdAt
     updatedAt
-    owner
     __typename
   }
 }

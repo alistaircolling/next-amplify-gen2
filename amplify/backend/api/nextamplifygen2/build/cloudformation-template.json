@@ -127,7 +127,7 @@
                         "ApiId"
                     ]
                 },
-                "Expires": 1705335228
+                "Expires": 1705410629
             }
         },
         "GraphQLAPINONEDS95A13CF0": {
@@ -264,12 +264,6 @@
                         "Fn::GetAtt": [
                             "GraphQLAPI",
                             "ApiId"
-                        ]
-                    },
-                    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
-                        "Fn::GetAtt": [
-                            "GraphQLAPINONEDS95A13CF0",
-                            "Name"
                         ]
                     },
                     "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {

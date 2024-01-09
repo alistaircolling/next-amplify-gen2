@@ -470,7 +470,7 @@
               {
                 "Ref": "TodoTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"eu-west-2:81b4754e-0098-4d5d-958b-e3b3b8eb7ddc\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -565,7 +565,7 @@
               {
                 "Ref": "TodoTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"eu-west-2:81b4754e-0098-4d5d-958b-e3b3b8eb7ddc\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -696,7 +696,7 @@
               {
                 "Ref": "TodoTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"eu-west-2:81b4754e-0098-4d5d-958b-e3b3b8eb7ddc\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -827,7 +827,7 @@
               {
                 "Ref": "TodoTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"eu-west-2:81b4754e-0098-4d5d-958b-e3b3b8eb7ddc\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -922,7 +922,7 @@
               {
                 "Ref": "TodoTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"eu-west-2:81b4754e-0098-4d5d-958b-e3b3b8eb7ddc\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -1007,7 +1007,7 @@
               {
                 "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"eu-west-2:81b4754e-0098-4d5d-958b-e3b3b8eb7ddc\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -1047,7 +1047,7 @@
               {
                 "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"eu-west-2:81b4754e-0098-4d5d-958b-e3b3b8eb7ddc\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -1087,7 +1087,7 @@
               {
                 "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"eu-west-2:81b4754e-0098-4d5d-958b-e3b3b8eb7ddc\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"eu-west-2_qVFHVQKg5_Full-access/CognitoIdentityCredentials\",\"eu-west-2_qVFHVQKg5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },

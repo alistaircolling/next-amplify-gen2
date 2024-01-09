@@ -6,18 +6,17 @@ type Todo {
   updatedAt: AWSDateTime!
 }
 
-type Booking @aws_cognito_user_pools {
+type Booking {
   id: ID!
-  start: AWSDate!
-  end: AWSDate!
-  bookingMade: AWSDate!
+  start: AWSDateTime!
+  end: AWSDateTime!
+  bookingMade: AWSDateTime!
   user: String!
   cost: Float!
   invoiceSent: Boolean!
   invoicePaid: Boolean!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
-  owner: String
 }
 
 input ModelStringInput {
@@ -187,8 +186,8 @@ input ModelTodoFilterInput {
 type Query {
   getTodo(id: ID!): Todo
   listTodos(filter: ModelTodoFilterInput, limit: Int, nextToken: String): ModelTodoConnection
-  getBooking(id: ID!): Booking @aws_cognito_user_pools
-  listBookings(filter: ModelBookingFilterInput, limit: Int, nextToken: String): ModelBookingConnection @aws_cognito_user_pools
+  getBooking(id: ID!): Booking
+  listBookings(filter: ModelBookingFilterInput, limit: Int, nextToken: String): ModelBookingConnection
 }
 
 input ModelTodoConditionInput {
@@ -219,9 +218,9 @@ type Mutation {
   createTodo(input: CreateTodoInput!, condition: ModelTodoConditionInput): Todo
   updateTodo(input: UpdateTodoInput!, condition: ModelTodoConditionInput): Todo
   deleteTodo(input: DeleteTodoInput!, condition: ModelTodoConditionInput): Todo
-  createBooking(input: CreateBookingInput!, condition: ModelBookingConditionInput): Booking @aws_cognito_user_pools
-  updateBooking(input: UpdateBookingInput!, condition: ModelBookingConditionInput): Booking @aws_cognito_user_pools
-  deleteBooking(input: DeleteBookingInput!, condition: ModelBookingConditionInput): Booking @aws_cognito_user_pools
+  createBooking(input: CreateBookingInput!, condition: ModelBookingConditionInput): Booking
+  updateBooking(input: UpdateBookingInput!, condition: ModelBookingConditionInput): Booking
+  deleteBooking(input: DeleteBookingInput!, condition: ModelBookingConditionInput): Booking
 }
 
 input ModelSubscriptionTodoFilterInput {
@@ -236,12 +235,12 @@ type Subscription {
   onCreateTodo(filter: ModelSubscriptionTodoFilterInput): Todo @aws_subscribe(mutations: ["createTodo"])
   onUpdateTodo(filter: ModelSubscriptionTodoFilterInput): Todo @aws_subscribe(mutations: ["updateTodo"])
   onDeleteTodo(filter: ModelSubscriptionTodoFilterInput): Todo @aws_subscribe(mutations: ["deleteTodo"])
-  onCreateBooking(filter: ModelSubscriptionBookingFilterInput, owner: String): Booking @aws_subscribe(mutations: ["createBooking"]) @aws_cognito_user_pools
-  onUpdateBooking(filter: ModelSubscriptionBookingFilterInput, owner: String): Booking @aws_subscribe(mutations: ["updateBooking"]) @aws_cognito_user_pools
-  onDeleteBooking(filter: ModelSubscriptionBookingFilterInput, owner: String): Booking @aws_subscribe(mutations: ["deleteBooking"]) @aws_cognito_user_pools
+  onCreateBooking(filter: ModelSubscriptionBookingFilterInput): Booking @aws_subscribe(mutations: ["createBooking"])
+  onUpdateBooking(filter: ModelSubscriptionBookingFilterInput): Booking @aws_subscribe(mutations: ["updateBooking"])
+  onDeleteBooking(filter: ModelSubscriptionBookingFilterInput): Booking @aws_subscribe(mutations: ["deleteBooking"])
 }
 
-type ModelBookingConnection @aws_cognito_user_pools {
+type ModelBookingConnection {
   items: [Booking]!
   nextToken: String
 }
@@ -275,9 +274,9 @@ input ModelBookingConditionInput {
 
 input CreateBookingInput {
   id: ID
-  start: AWSDate!
-  end: AWSDate!
-  bookingMade: AWSDate!
+  start: AWSDateTime!
+  end: AWSDateTime!
+  bookingMade: AWSDateTime!
   user: String!
   cost: Float!
   invoiceSent: Boolean!
@@ -286,9 +285,9 @@ input CreateBookingInput {
 
 input UpdateBookingInput {
   id: ID!
-  start: AWSDate
-  end: AWSDate
-  bookingMade: AWSDate
+  start: AWSDateTime
+  end: AWSDateTime
+  bookingMade: AWSDateTime
   user: String
   cost: Float
   invoiceSent: Boolean

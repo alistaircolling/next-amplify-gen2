@@ -130,7 +130,6 @@ export type Booking = {
   invoicePaid: boolean,
   createdAt: string,
   updatedAt: string,
-  owner?: string | null,
 };
 
 export type UpdateBookingInput = {
@@ -333,7 +332,6 @@ export type CreateBookingMutation = {
     invoicePaid: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -355,7 +353,6 @@ export type UpdateBookingMutation = {
     invoicePaid: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -377,7 +374,6 @@ export type DeleteBookingMutation = {
     invoicePaid: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -434,7 +430,6 @@ export type GetBookingQuery = {
     invoicePaid: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -459,7 +454,6 @@ export type ListBookingsQuery = {
       invoicePaid: boolean,
       createdAt: string,
       updatedAt: string,
-      owner?: string | null,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -512,7 +506,6 @@ export type OnDeleteTodoSubscription = {
 
 export type OnCreateBookingSubscriptionVariables = {
   filter?: ModelSubscriptionBookingFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnCreateBookingSubscription = {
@@ -528,13 +521,11 @@ export type OnCreateBookingSubscription = {
     invoicePaid: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
 export type OnUpdateBookingSubscriptionVariables = {
   filter?: ModelSubscriptionBookingFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnUpdateBookingSubscription = {
@@ -550,13 +541,11 @@ export type OnUpdateBookingSubscription = {
     invoicePaid: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
 export type OnDeleteBookingSubscriptionVariables = {
   filter?: ModelSubscriptionBookingFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnDeleteBookingSubscription = {
@@ -572,6 +561,5 @@ export type OnDeleteBookingSubscription = {
     invoicePaid: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };

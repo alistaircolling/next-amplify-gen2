@@ -108,6 +108,23 @@ export default function BookingUpdateForm(props) {
     setErrors((errors) => ({ ...errors, [fieldName]: validationResponse }));
     return validationResponse;
   };
+  const convertToLocal = (date) => {
+    const df = new Intl.DateTimeFormat("default", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      calendar: "iso8601",
+      numberingSystem: "latn",
+      hourCycle: "h23",
+    });
+    const parts = df.formatToParts(date).reduce((acc, part) => {
+      acc[part.type] = part.value;
+      return acc;
+    }, {});
+    return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}`;
+  };
   return (
     <Grid
       as="form"
@@ -179,10 +196,11 @@ export default function BookingUpdateForm(props) {
         label="Start"
         isRequired={true}
         isReadOnly={false}
-        type="date"
-        value={start}
+        type="datetime-local"
+        value={start && convertToLocal(new Date(start))}
         onChange={(e) => {
-          let { value } = e.target;
+          let value =
+            e.target.value === "" ? "" : new Date(e.target.value).toISOString();
           if (onChange) {
             const modelFields = {
               start: value,
@@ -210,10 +228,11 @@ export default function BookingUpdateForm(props) {
         label="End"
         isRequired={true}
         isReadOnly={false}
-        type="date"
-        value={end}
+        type="datetime-local"
+        value={end && convertToLocal(new Date(end))}
         onChange={(e) => {
-          let { value } = e.target;
+          let value =
+            e.target.value === "" ? "" : new Date(e.target.value).toISOString();
           if (onChange) {
             const modelFields = {
               start,
@@ -241,10 +260,11 @@ export default function BookingUpdateForm(props) {
         label="Booking made"
         isRequired={true}
         isReadOnly={false}
-        type="date"
-        value={bookingMade}
+        type="datetime-local"
+        value={bookingMade && convertToLocal(new Date(bookingMade))}
         onChange={(e) => {
-          let { value } = e.target;
+          let value =
+            e.target.value === "" ? "" : new Date(e.target.value).toISOString();
           if (onChange) {
             const modelFields = {
               start,

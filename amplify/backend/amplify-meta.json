@@ -38,12 +38,12 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync",
-      "lastPushTimeStamp": "2024-01-08T16:13:45.918Z",
+      "lastPushTimeStamp": "2024-01-09T13:12:47.530Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-nextamplifygen2-dev-140943-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apinextamplifygen2"
       },
-      "lastPushDirHash": "dbeW2pIkudglnuTvs39A9CVi+CY="
+      "lastPushDirHash": "OIWMrpZ+k5Nb18rPXiSlj0CZE1Y="
     }
   },
   "auth": {
@@ -76,7 +76,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-nextamplifygen2-dev-140943-deployment/amplify-cfn-templates/auth/nextamplifygen213b862b5-cloudformation-template.json",
         "logicalId": "authnextamplifygen213b862b5"
       },
-      "lastPushTimeStamp": "2024-01-08T16:13:45.921Z",
+      "lastPushTimeStamp": "2024-01-09T13:12:45.399Z",
       "output": {
         "UserPoolId": "eu-west-2_ses9PUIJr",
         "AppClientIDWeb": "1rd5cqqidqq0ddijgsrji9u3ad",
